@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js"></script>
+</head>
+
+<body>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+        }
+
+        #main4 {
+            width: 800px;
+            height: 300px;
+        }
+        #main5{
+            width:600;
+            height:300px;
+        }
+    </style>
+</body>
+<div id="main1"></div>
+<div id="main2"></div>
+<div id="main3"></div>
+<div id="main4"></div>
+<div id="main5"></div>
+<script type="text/javascript">
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    var myChart2 = echarts.init(document.getElementById('main2'));
+    var myChart3 = echarts.init(document.getElementById('main3'));
+    var myChart4 = echarts.init(document.getElementById('main4'));
+    var myChart5 = echarts.init(document.getElementById('main5'));
+    var option1 = {
+        toolbox: {
+            show: false,
+            feature: {
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        series: [{
+            name: '业务指标',
+            type: 'gauge',
+            startAngle: 180,
+            endAngle: 0,
+            radius: 100,
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    width: 30,
+                    color: [[0, '#a3db41'], [1, '#a3db41']]
+                }
+            },
+            splitLine: {
+                show: false,
+            },
+            axisTick: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
+            pointer: {
+                length: '60px',
+                width: '3px',
+            },
+            detail: {
+                offsetCenter: [0, '-120%'],
+                fontSize: 20,
+                formatter: '首次检验合格率{value}'
+            },
+            data: [
+                { value: 88 }
+            ]
+        }]
+    };
+    var option2 = {
+        toolbox: {
+            show: false,
+            feature: {
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        series: [{
+            name: '业务指标',
+            type: 'gauge',
+            startAngle: 180,
+            endAngle: 0,
+            radius: 100,
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    width: 30,
+                    color: [[0, '#4FC1E9'], [1, '#4FC1E9']]
+                }
+            },
+            splitLine: {
+                show: false,
+            },
+            axisTick: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
+            pointer: {
+                length: '60px',
+                width: '3px',
+            },
+            detail: {
+                offsetCenter: [0, '-120%'],
+                fontSize: 20,
+                formatter: '一次交检合格率{value}'
+            },
+            data: [
+                { value: 83 }
+            ]
+        }]
+    };
+    var option3 = {
+        toolbox: {
+            show: false,
+            feature: {
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        series: [{
+            name: '业务指标',
+            type: 'gauge',
+            startAngle: 180,
+            endAngle: 0,
+            radius: 100,
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    width: 30,
+                    color: [[0, '#006600'], [1, '#006600']]
+                }
+            },
+            splitLine: {
+                show: false,
+            },
+            axisTick: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
+            pointer: {
+                length: '60px',
+                width: '3px',
+            },
+            detail: {
+                offsetCenter: [0, '-120%'],
+                fontSize: 20,
+                formatter: '二次交检合格率{value}'
+            },
+            data: [
+                { value: 92 }
+            ]
+        }]
+    };
+    option4 = {
+        title: {
+            text: '合格率'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['首检合格率', '一次交检合格率', '二次交检合格率'],
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['0:00', '2:00', '4:00', '6:00', '5:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00']
+        },
+        yAxis: {
+            type: 'value',
+            max: 100
+        },
+        series: [
+            {
+                name: '首检合格率',
+                type: 'line',
+                data: [60, 55, 53, 60, 63, 64, 65, 60, 63, 62, 61, 60, 69, 60]
+            },
+            {
+                name: '一次交检合格率',
+                type: 'line',
+                data: [70, 68, 83, 80, 76, 75, 74, 80, 78, 76, 74, 75, 80, 79]
+            },
+            {
+                name: '二次交检合格率',
+                type: 'line',
+                data: [90, 85, 86, 82, 80, 90, 88, 86, 84, 88, 83, 82, 83, 82]
+            },
+        ]
+    };
+    
+    option5 = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data: ['精车', '粗车', '加工中心']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            max:30
+        },
+        yAxis: {
+            type: 'category',
+            data: ['缩孔', '缺角', '损伤', '变形', '分层']
+        },
+        series: [
+            {
+                name: '精车',
+                stack: '总量',
+                type: 'bar',
+                data: [4.5,10,6,12,4]
+            },
+            {
+                name: '粗车',
+                stack: '总量',
+                type: 'bar',
+                data: [1.5, 7, 3, 11, 6]
+            },
+            {
+                name: '加工中心',
+                stack: '总量',
+                type: 'bar',
+
+                data: [7,5.5,11,6,5]
+            }
+        ]
+    };
+
+    myChart1.setOption(option1);
+    myChart2.setOption(option2);
+    myChart3.setOption(option3);
+    myChart4.setOption(option4);
+    myChart5.setOption(option5);
+</script>
+
+</html>
